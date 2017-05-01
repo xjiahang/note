@@ -20,7 +20,7 @@ var addNote = (title, body) => {
     var duplicateNote = notes.filter((note) => note.title === title);
     if (duplicateNote.length === 0) {
       notes.push(note);
-      fs.writeFileSync('notes-data.json', JSON.stringify(note));
+      fs.writeFileSync('notes-data.json', JSON.stringify(notes));
     }
 };
 
