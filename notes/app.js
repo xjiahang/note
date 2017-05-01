@@ -17,15 +17,22 @@ if (command === 'add') {
     } else {
         console.log('add note', argv.title, 'success');
         console.log('-----');
-        console.log(`Title : ${argv.title}`);
-        console.log(`Boday : ${argv.body}`);
+        console.log(`Title : ${note.title}`);
+        console.log(`Boday : ${note.body}`);
     }
 } else if (command === 'remove') {
     let removed = notes.removeNote(argv.title);
     let message = removed ? `${argv.title} is removed` : `${argv.title} not found`;
     console.log(message);
 } else if (command === 'read') {
-
+    let note = notes.readNote(argv.title);
+    if (_.isUndefined(note)) {
+      console.log('----');
+      console.log(`Title : ${note.title}`);
+      console.log(`Body : ${note.body}`);
+    } else {
+      console.log(`${argv.title} not found!`);
+    }
 } else {
   console.log('Unrecognized command');
 }

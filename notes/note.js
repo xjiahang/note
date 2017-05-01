@@ -45,11 +45,20 @@ var removeNote = (title) => {
     return notes.length !== filterNote.length;
 }
 
+// input : string title
+// output : desired note object
 var readNote = (title) => {
-    console.log('');
+    var allNote = fetchNote();
+    var note = allNote.filter((note) => note.title == title);
+    if (note.length == 0)
+        return [];
+    else {
+        return note[0];
+    }
 }
 
 module.exports = {
   addNote,
-  removeNote
+  removeNote,
+  readNote
 }
