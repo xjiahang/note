@@ -33,7 +33,7 @@ var addNote = (title, body) => {
     if (duplicateNote.length === 0) {
       notes.push(note);
       saveNote(notes);
-      return notes;
+      return note;
     }
 };
 
@@ -66,6 +66,7 @@ var logNote = (note) => {
   console.log(`Title : ${note.title}`);
   console.log(`Body : ${note.body}`);
 }
+
 module.exports = {
   addNote,
   removeNote,
