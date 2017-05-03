@@ -16,9 +16,7 @@ if (command === 'add') {
         console.log('add note ', argv.title, 'already exisit in file');
     } else {
         console.log('add note', argv.title, 'success');
-        console.log('-----');
-        console.log(`Title : ${note.title}`);
-        console.log(`Boday : ${note.body}`);
+        notes.logNote(note);
     }
 } else if (command === 'remove') {
     let removed = notes.removeNote(argv.title);
@@ -27,12 +25,13 @@ if (command === 'add') {
 } else if (command === 'read') {
     let note = notes.readNote(argv.title);
     if (_.isUndefined(note)) {
-      console.log('----');
-      console.log(`Title : ${note.title}`);
-      console.log(`Body : ${note.body}`);
+        console.log(`${argv.title} not found!`);
     } else {
-      console.log(`${argv.title} not found!`);
+        notes.logNote(note);
     }
+} else if (command === 'list') {
+    let allNote = notes.getAll();
+    allNote.forEach((note) => notes.logNote(note));
 } else {
-  console.log('Unrecognized command');
+    console.log('Unrecognized command');
 }

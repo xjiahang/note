@@ -57,8 +57,19 @@ var readNote = (title) => {
     }
 }
 
+var getAll = () => {
+    return fetchNote();
+}
+
+var logNote = (note) => {
+  console.log('----');
+  console.log(`Title : ${note.title}`);
+  console.log(`Body : ${note.body}`);
+}
 module.exports = {
   addNote,
   removeNote,
-  readNote
+  readNote,
+  logNote,
+  getAll
 }
